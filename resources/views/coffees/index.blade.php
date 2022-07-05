@@ -14,7 +14,7 @@
                 </a>
             </div>
             <div class="px-4 py-5 bg-white sm:p-6">
-                <table width="100%" id="crudTable">
+                <table class="table-auto w-full" id="crudTable">
                     <thead>
                         <tr>
                             <th class="border px-6 py-4">ID</th>

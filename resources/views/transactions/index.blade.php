@@ -7,8 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white">
-                <table class="table-auto w-full">
+            <div class="px-4 py-5 bg-white sm:p-6">
+                <table class="table-auto w-full" id="crudTable">
                     <thead>
                     <tr>
                         <th class="border px-6 py-4">ID</th>
