@@ -40,7 +40,7 @@
                 @endif
 
                 @if (Route::has('register'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                         {{ __('Create account') }}
                     </a>
                 @endif
