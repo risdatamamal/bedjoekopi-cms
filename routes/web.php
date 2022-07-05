@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\API\MidtransController;
-use App\Http\Controllers\CoffeeController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CoffeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\MidtransController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,15 +21,26 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage
 Route::get('/', function () {
-    return redirect()->route('dashboard');
+    return redirect()->route('redirects');
 });
 
-// Dashboard
-Route::prefix('dashboard')
-    ->middleware(['auth:sanctum','admin'])
+Route::get('redirects', [HomeController::class, 'index'])->name('redirects');
+
+// User
+Route::middleware(['auth:sanctum', 'verified'])
+    ->group(function () {
+        Route::get('/success', function () {
+            return view('auth.success');
+        })->name('success');
+    });
+
+// Admin
+Route::prefix('admin')
+    ->middleware(['auth:sanctum', 'admin', 'verified'])
     ->group(function() {
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard');
+
         Route::resource('coffees', CoffeeController::class);
         Route::resource('users', UserController::class);
 
