@@ -49,5 +49,13 @@ In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_
 ```markdown
 
 php artisan migrate
-
 ```
+
+8. If you running for API
+```markdown
+
+php artisan serve --host 0.0.0.0
+```
+
+After run in your terminal, check your IP address with :8000 and copy paste on browser
+
