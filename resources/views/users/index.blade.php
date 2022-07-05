@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
 
+    <x-slot name="script">
+        <script>
+            // AJAX DataTable
+            var datatable = $('#crudTable').DataTable({
+                "scrollX": true
+            });
+        </script>
+    </x-slot>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-10">
@@ -12,8 +21,8 @@
                     + Create User
                 </a>
             </div>
-            <div class="bg-white">
-                <table class="table-auto w-full">
+            <div class="px-4 py-5 bg-white sm:p-6">
+                <table width="100%" id="crudTable">
                     <thead>
                     <tr>
                         <th class="border px-6 py-4">ID</th>

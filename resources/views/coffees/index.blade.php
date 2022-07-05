@@ -8,22 +8,23 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('coffees.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('coffees.create') }}"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                     + Create Menu
                 </a>
             </div>
-            <div class="bg-white">
-                <table class="table-auto w-full">
+            <div class="px-4 py-5 bg-white sm:p-6">
+                <table width="100%" id="crudTable">
                     <thead>
-                    <tr>
-                        <th class="border px-6 py-4">ID</th>
-                        <th class="border px-6 py-4">Name</th>
-                        <th class="border px-6 py-4">Price</th>
-                        <th class="border px-6 py-4">Rate</th>
-                        <th class="border px-6 py-4">Types</th>
-                        <th class="border px-6 py-4">Code Menu</th>
-                        <th class="border px-6 py-4">Action</th>
-                    </tr>
+                        <tr>
+                            <th class="border px-6 py-4">ID</th>
+                            <th class="border px-6 py-4">Name</th>
+                            <th class="border px-6 py-4">Price</th>
+                            <th class="border px-6 py-4">Rate</th>
+                            <th class="border px-6 py-4">Types</th>
+                            <th class="border px-6 py-4">Code Menu</th>
+                            <th class="border px-6 py-4">Action</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @forelse($coffee as $item)
@@ -35,12 +36,15 @@
                                 <td class="border px-6 py-4">{{ $item->types }}</td>
                                 <td class="border px-6 py-4">{{ $item->code }}</td>
                                 <td class="border px-6 py- text-center">
-                                    <a href="{{ route('coffees.edit', $item->id) }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
+                                    <a href="{{ route('coffees.edit', $item->id) }}"
+                                        class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
                                         Edit
                                     </a>
-                                    <form action="{{ route('coffees.destroy', $item->id) }}" method="POST" class="inline-block">
+                                    <form action="{{ route('coffees.destroy', $item->id) }}" method="POST"
+                                        class="inline-block">
                                         {!! method_field('delete') . csrf_field() !!}
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-2 rounded inline-block">
+                                        <button type="submit"
+                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-2 rounded inline-block">
                                             Delete
                                         </button>
                                     </form>
@@ -48,9 +52,9 @@
                             </tr>
                         @empty
                             <tr>
-                               <td colspan="7" class="border text-center p-5">
-                                   Data Tidak Ditemukan
-                               </td>
+                                <td colspan="7" class="border text-center p-5">
+                                    Data Tidak Ditemukan
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>
