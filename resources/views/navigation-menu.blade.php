@@ -17,17 +17,17 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/dashboard/coffees" :active="request()->routeIs('coffees*')">
+                    <x-jet-nav-link href="/admin/coffees" :active="request()->routeIs('coffees*')">
                         {{ __('Menu') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/dashboard/transactions" :active="request()->routeIs('transactions*')">
+                    <x-jet-nav-link href="/admin/transactions" :active="request()->routeIs('transactions*')">
                         {{ __('Transaction') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/dashboard/users" :active="request()->routeIs('users*')">
+                    <x-jet-nav-link href="/admin/users" :active="request()->routeIs('users*')">
                         {{ __('User') }}
                     </x-jet-nav-link>
                 </div>
