@@ -8,17 +8,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\API\MidtransController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Homepage
 Route::get('/', function () {
     return redirect()->route('redirects');
@@ -37,7 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])
 // Admin
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'admin', 'verified'])
-    ->group(function() {
+    ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard');
 
@@ -48,6 +37,16 @@ Route::prefix('admin')
             ->name('transactions.changeStatus');
         Route::resource('transactions', TransactionController::class);
     });
+
+// Cashier
+// Route::prefix('cashier')
+//     ->middleware(['auth:sanctum', 'cashier', 'verified'])
+//     ->group(function () {
+//         Route::get('/', [DashboardController::class, 'index'])
+//             ->name('dashboard');
+
+//         Route::resource('transactions', TransactionController::class);
+//     });
 
 // Midtrans Related
 Route::get('midtrans/success', [MidtransController::class, 'success']);
